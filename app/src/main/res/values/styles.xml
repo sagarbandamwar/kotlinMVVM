@@ -1,0 +1,55 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="GenericStyle" parent="@android:style/Widget.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="TextViewTitle" parent="GenericStyle">
+        <item name="android:text">@string/txt_title</item>
+        <item name="android:textSize">@dimen/twenty_four_dp</item>
+        <item name="android:textColor">@color/text_title</item>
+        <item name="android:layout_margin">@dimen/five_dp</item>
+    </style>
+
+    <style name="TextViewSubTitle" parent="GenericStyle">
+        <item name="android:text">@string/txt_sub_title</item>
+        <item name="android:textSize">@dimen/eighteen_dp</item>
+        <item name="android:textColor">@color/text_subtitle</item>
+        <item name="android:layout_margin">@dimen/five_dp</item>
+    </style>
+
+    <style name="SetLeftRightConstraint">
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+    </style>
+
+    <style name="SetTopBottomConstraint">
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+    <style name="SetTopBottomLeftRightConstraint">
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+    <style name="MyButton" parent="android:style/Widget.Button">
+        <item name="android:clickable">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_blue</item>
+        <item name="android:layout_marginTop">@dimen/fifteen_dp</item>
+        <item name="android:layout_width">@dimen/hundred_dp</item>
+        <item name="android:layout_height">@dimen/forty_dp</item>
+    </style>
+</resources>

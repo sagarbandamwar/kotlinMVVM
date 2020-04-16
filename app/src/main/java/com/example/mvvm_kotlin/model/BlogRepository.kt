@@ -1,6 +1,5 @@
 package com.example.mvvm_kotlin.model
 
-import android.telecom.Call
 import android.util.Log
 import com.example.mvvm_kotlin.services.ApiClient
 import com.example.mvvm_kotlin.services.NetworkOperationCallback

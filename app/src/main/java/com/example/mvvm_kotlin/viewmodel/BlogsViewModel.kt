@@ -22,7 +22,7 @@ class BlogsViewModel(private val repository: BlogDataSource) : ViewModel() {
     private val _isEmptyList = MutableLiveData<Boolean>()
     val isEmptyList: LiveData<Boolean> = _isEmptyList
 
-    fun loadMuseums() {
+    fun loadBlogs() {
         _isViewLoading.postValue(true)
         repository.retrieveBlogs(object : NetworkOperationCallback<Blog> {
             override fun onError(error: String?) {

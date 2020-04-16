@@ -29,18 +29,6 @@ class BlogsAdapter(private var blogs: List<Blog>) :
             blog.imageHref?.let {
                 Glide.with(context).load(blog.imageHref).apply(RequestOptions().override(160, 140)).into(image)
             }
-            /*     Picasso.get()
-                     .load(blog.imageHref)                          // we are loading images with the help of picasso
-                     .placeholder(R.drawable.ic_launcher_background)
-                     .error(R.drawable.ic_launcher_foreground).into(image, object :
-                         com.squareup.picasso.Callback {
-                         override fun onSuccess() {
-                         }
-
-                         override fun onError(e: Exception) {
-                             e.printStackTrace()         // it will print the exception
-                         }
-                     })*/
         }
     }
 
@@ -53,7 +41,5 @@ class BlogsAdapter(private var blogs: List<Blog>) :
         notifyDataSetChanged()
     }
 
-    class MViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-    }
+    class MViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }

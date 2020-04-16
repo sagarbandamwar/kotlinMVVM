@@ -3,12 +3,13 @@ package com.example.mvvm_kotlin.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mvvm_kotlin.R
+import com.example.mvvm_kotlin.R.layout.activity_blogs
 
 class BlogsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         supportFragmentManager.fragmentFactory = BlogsFragmentFactory()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_blogs)
+        setContentView(activity_blogs)
         initFragment()
     }
 

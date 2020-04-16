@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">MVVM_KOTLIN</string>
-    <string name="empty_list">No museums found!</string>
-    <string name="an_error_occurred">An error occurred</string>
+    <string name="empty_list">No blogs found!</string>
     <string name="telstra">TELSTRA</string>
     <string name="text_yes">Yes</string>
     <string name="internet_message">Connect to Internet</string>
-    <string name="mo_title">No Title</string>
     <string name="txt_title">Title</string>
     <string name="txt_sub_title">Sub Title</string>
     <string name="text_no">NO</string>
+    <string name="text_error">Error</string>
+    <string name="server_image">ServerImage</string>
+    <string name="icon_image">icon</string>
 </resources>

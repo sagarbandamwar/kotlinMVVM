@@ -26,16 +26,6 @@
         <item name="android:layout_margin">@dimen/five_dp</item>
     </style>
 
-    <style name="MyButton" parent="android:style/Widget.Button">
-        <item name="android:clickable">true</item>
-        <item name="android:background">@color/white</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/color_blue</item>
-        <item name="android:layout_marginTop">@dimen/fifteen_dp</item>
-        <item name="android:layout_width">@dimen/hundred_dp</item>
-        <item name="android:layout_height">@dimen/forty_dp</item>
-    </style>
-
     <style name="RecyclerViewStyle">
         <item name="android:layout_marginStart">@dimen/four_dp</item>
         <item name="android:layout_marginLeft">@dimen/four_dp</item>
@@ -43,14 +33,5 @@
         <item name="android:layout_marginRight">@dimen/four_dp</item>
         <item name="android:layout_marginBottom">@dimen/four_dp</item>
         <item name="android:layout_marginEnd">@dimen/four_dp</item>
-    </style>
-
-    <style name="ProgressBarStyle">
-        <item name="android:layout_marginStart">@dimen/eight_dp</item>
-        <item name="android:layout_marginLeft">@dimen/eight_dp</item>
-        <item name="android:layout_marginTop">@dimen/eight_dp</item>
-        <item name="android:layout_marginRight">@dimen/eight_dp</item>
-        <item name="android:layout_marginBottom">@dimen/eight_dp</item>
-        <item name="android:layout_marginEnd">@dimen/eight_dp</item>
     </style>
 </resources>

@@ -27,7 +27,8 @@ class BlogsAdapter(private var blogs: List<Blog>) :
             title.text = blog.title
             subtitle.text = blog.description
             blog.imageHref?.let {
-                Glide.with(context).load(blog.imageHref).apply(RequestOptions().override(160, 140)).into(image)
+                Glide.with(context).load(blog.imageHref).apply(RequestOptions().override(160, 140))
+                    .into(image)
             }
         }
     }

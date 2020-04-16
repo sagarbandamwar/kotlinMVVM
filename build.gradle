@@ -52,4 +52,6 @@ ext {
     gson='2.3.0'
     okhttp3='3.4.1'
     glideVersion='4.11.0'
+
+    roomVersion='1.1.1'
 }

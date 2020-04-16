@@ -1,12 +1,9 @@
 package com.example.mvvm_kotlin.services
 
-import com.example.mvvm_kotlin.model.BlogsResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
 
 object ApiClient {
     private const val API_BASE_URL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/"
@@ -31,10 +28,5 @@ object ApiClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return httpLoggingInterceptor
-    }
-
-    interface ServicesApiInterface {
-        @GET("facts")
-        fun museums(): Call<BlogsResponse>
     }
 }

@@ -1,7 +1,6 @@
 package com.example.mvvm_kotlin.view
 
 import android.annotation.TargetApi
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mvvm_kotlin.R
+import com.example.mvvm_kotlin.database.BlogsDao
+import com.example.mvvm_kotlin.database.BlogsDatabase
 import com.example.mvvm_kotlin.di.Injection
 import com.example.mvvm_kotlin.model.Blog
 import com.example.mvvm_kotlin.util.CommonUtil
@@ -22,9 +23,12 @@ class BlogsFragment : Fragment() {
 
     private lateinit var viewModel: BlogsViewModel
     private lateinit var adapter: BlogsAdapter
+    private lateinit var blogsDao: BlogsDao
+    private var arrayListBlogs: List<Blog> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        blogsDao = BlogsDatabase.getDatabase(requireContext())?.blogsDao()!!
         setupViewModel()
     }
 
@@ -39,12 +43,24 @@ class BlogsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         addObserver()
         setupUI()
-    }
+        if (!arrayListBlogs.isEmpty()) {
+            blogsDao.setBlogs(arrayListBlogs)
+        }
 
+        swipe_referesh_layout.setOnRefreshListener {
+            setupUI()
+            swipe_referesh_layout.isRefreshing = false
+        }
+    }
     //ui
     private fun setupUI() {
-        adapter = BlogsAdapter(viewModel.blogsLiveData.value ?: emptyList())
-        recyclerView.adapter = adapter
+        if (CommonUtil.isOnline(requireContext())) {
+            adapter = BlogsAdapter(viewModel.blogsLiveData.value ?: emptyList())
+            recyclerView.adapter = adapter
+        } else {
+            adapter = BlogsAdapter(arrayListBlogs)
+            recyclerView.adapter = adapter
+        }
     }
 
     private fun setupViewModel() {
@@ -58,25 +74,13 @@ class BlogsFragment : Fragment() {
     private val renderBlogs = Observer<List<Blog>> {
         layoutError.visibility = View.GONE
         layoutEmpty.visibility = View.GONE
+        arrayListBlogs = it
         adapter.update(it)
     }
 
-    private val isViewLoadingObserver = Observer<Boolean> {
-        val visibility = if (it) View.VISIBLE else View.GONE
-        progressBar.visibility = visibility
-    }
-
     private val onMessageErrorObserver = Observer<Any> {
-        if (CommonUtil.isOnline(activity as Context)) {
-            layoutError.visibility = View.GONE
-
-        } else {
-            CommonUtil.showDialog(
-                resources.getString(R.string.internet_message),
-                activity as Context
-            )
-            layoutEmpty.visibility = View.GONE
-        }
+        layoutError.visibility = View.GONE
+        layoutEmpty.visibility = View.GONE
     }
 
     private val emptyListObserver = Observer<Boolean> {
@@ -86,7 +90,6 @@ class BlogsFragment : Fragment() {
 
     private fun addObserver() {
         viewModel.blogsLiveData.observe(viewLifecycleOwner, renderBlogs)
-        viewModel.isViewLoading.observe(viewLifecycleOwner, isViewLoadingObserver)
         viewModel.onMessageError.observe(viewLifecycleOwner, onMessageErrorObserver)
         viewModel.isEmptyList.observe(viewLifecycleOwner, emptyListObserver)
     }

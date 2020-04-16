@@ -6,11 +6,10 @@ import com.example.mvvm_kotlin.model.BlogRepository
 import com.example.mvvm_kotlin.viewmodel.ViewModelFactory
 
 object Injection {
-
     private val BLOG_DATA_SOURCE: BlogDataSource = BlogRepository()
-    private val museumViewModelFactory = ViewModelFactory(BLOG_DATA_SOURCE)
+    private val blogsViewModelFactory = ViewModelFactory(BLOG_DATA_SOURCE)
 
     fun provideViewModelFactory(): ViewModelProvider.Factory{
-        return museumViewModelFactory
+        return blogsViewModelFactory
     }
 }

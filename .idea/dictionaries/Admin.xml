@@ -2,6 +2,11 @@
   <dictionary name="Admin">
     <words>
       <w>blogs</w>
+      <w>databse</w>
+      <w>mvvm</w>
+      <w>recyclerview</w>
+      <w>referesh</w>
+      <w>swiperefreshlayout</w>
       <w>telstra</w>
     </words>
   </dictionary>
